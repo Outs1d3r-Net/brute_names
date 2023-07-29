@@ -34,6 +34,13 @@ Smaug@erebor:~$ ./kerbrute userenum -d AD_NAME.LOCAL wordlist_login_pt_br.txt
 #  
 ![evidence](img/img.png)  
 #  
+##### Checkpoint:  
+```
+Smaug@erebor:~$ cat wordlist_login_pt_br.txt |nl |grep beatriz.araujo
+Smaug@erebor:~$ cat wordlist_login_pt_br.txt |tail -n $(($(wc -l wordlist_login_pt_br.txt | cut -d " " -f 1)-366773)) >> tmp
+Smaug@erebor:~$ mv tmp wordlist_login_pt_br.txt
+```
+
 #### pass.txt:  
 ```
 Mudar@123
