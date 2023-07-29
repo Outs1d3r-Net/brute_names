@@ -31,6 +31,9 @@ Smaug@erebor:~$ git clone https://github.com/ropnop/kerbrute; cd kerbrute
 Smaug@erebor:~$ go build .
 Smaug@erebor:~$ ./kerbrute userenum -d AD_NAME.LOCAL wordlist_login_pt_br.txt
 ```
+#  
+![evidence](img/img.png)  
+#  
 #### pass.txt:  
 ```
 Mudar@123
